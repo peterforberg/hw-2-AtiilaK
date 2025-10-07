@@ -1,0 +1,117 @@
+STAT 159/259 — HW2  
+AI / LLM Documentation  
+
+Summary:
+I used ChatGPT was used to help clarify steps and debug small issues. No part of the assignment was generated automatically.  
+All commands, commits, tags, and notebook modifications were completed by me.
+
+Below are the prompts I used and its responses:
+
+--------------------------------------------------------
+Prompt:
+Is decorator a scientific package or?
+
+Response:
+Excellent question — and a subtle one most people miss.
+
+### 🧩 What `decorator` actually is
+
+`decorator` is a **small utility library** that helps other Python packages (like SciPy and Matplotlib) define *function decorators* cleanly.
+It’s **not** a scientific or numerical library on its own — rather, it’s a **support library** used *by* scientific packages.
+
+---
+
+### 🧠 In simpler terms
+
+Think of it like this:
+
+| Type                       | Example packages                       | Purpose                                                       |
+| -------------------------- | -------------------------------------- | ------------------------------------------------------------- |
+| **Scientific / numerical** | `numpy`, `scipy`, `matplotlib`, `h5py` | perform math, signal processing, plotting                     |
+| **Utility / support**      | `decorator`, `six`, `packaging`        | make the scientific libraries *work correctly* under the hood |
+
+So `decorator` sits in that **support layer** — you don’t call it directly, but functions inside `scipy.signal` or `matplotlib` often depend on it.
+
+---
+
+### 📦 Why you include it
+
+* It’s required indirectly by `matplotlib` and `scipy`.
+* In many environments (like Binder), it’s already there.
+* In a minimal Conda environment, leaving it out can cause errors like:
+
+  ```
+  ModuleNotFoundError: No module named 'decorator'
+  ```
+
+That’s why including it explicitly makes your environment more robust.
+
+---
+
+✅ **Answer summary:**
+
+> `decorator` is **not a scientific package**, but a **utility dependency** that scientific libraries rely on.
+> You include it to make sure those libraries run smoothly, even in minimal setups.
+
+
+
+
+
+--------------------------------------------------------
+Prompt:
+Binder auto-generates a strange link which is not working (inserted an image of the link and my binder input).  
+Is this an issue? I entered everything correctly.
+
+Response:
+Good catch — and you’re absolutely right: you didn’t add any extra slashes yourself. 👍
+
+What’s happening is that **Binder occasionally re-encodes your path incorrectly** when the repository name contains uppercase letters or hyphens (like `hw-2-AtiilaK`). It sometimes treats the `lab/tree/...` path as part of a “document tree” and adds those stray `%2Fdoc%2Ftree%2Flab%2Ftree` segments automatically.
+
+No worries — you can completely ignore what Binder auto-generates there and just **manually correct the final URL** yourself.
+
+---
+
+### ✅ The correct, stable Binder URL
+
+Use this exact version — it works reliably:
+
+```
+https://mybinder.org/v2/gh/UCB-stat-159-f25/hw-2-AtiilaK/main?urlpath=lab/tree/LOSC_Event_tutorial.ipynb
+```
+
+---
+
+### ✅ Binder badge Markdown for your README
+
+Copy and paste this line exactly:
+
+```markdown
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/UCB-stat-159-f25/hw-2-AtiilaK/main?urlpath=lab/tree/LOSC_Event_tutorial.ipynb)
+```
+
+---
+
+### 🧠 How to confirm it’s working
+
+After updating your README:
+
+1. Go to your GitHub repo main page.
+2. Click the Binder badge.
+3. You should see:
+
+   * Binder build your environment (may take a few minutes first time).
+   * JupyterLab open (not the classic interface).
+   * Your `LOSC_Event_tutorial.ipynb` notebook already open in the main tab.
+
+If that happens, everything is perfect. ✅
+
+---
+
+So, in short:
+
+* You didn’t do anything wrong — Binder’s generator is just quirky.
+* Use the **manual URL** above.
+* Once added to your README, your Binder setup will be 100 % correct for grading.
+
+--------------------------------------------------------
+
