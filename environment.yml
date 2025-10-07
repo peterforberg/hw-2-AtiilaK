@@ -1,0 +1,23 @@
+name: ligo
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+ # Base runtime
+  - python=3.9
+
+# System / I/O support
+  - pip=24.2
+  
+# Core scientific libraries
+  - numpy=2.0
+  - scipy=1.13
+  - matplotlib=3.9
+  - h5py=3.12
+  
+# Jupyter environment
+  - ipykernel=6.29
+  - jupyterlab=4.2
+
+# Other
+  - decorator=5.1

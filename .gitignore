@@ -1,0 +1,8 @@
+# Ignore generated analysis outputs
+*.png
+*.wav
+*.csv
+
+# Ignore notebook checkpoints and temporary folders
+.ipynb_checkpoints/
+__pycache__/
