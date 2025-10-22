@@ -6,3 +6,6 @@
 # Ignore notebook checkpoints and temporary folders
 .ipynb_checkpoints/
 __pycache__/
+
+# Ignore the homework instructions
+hw02-description.ipynb
